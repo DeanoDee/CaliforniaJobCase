@@ -1,0 +1,264 @@
+/////   !FUNCTIONS
+
+@function rhythm-spacer($multiple: 1){
+	$spacer: 0;
+	@if($browser-rounds-line-height == TRUE){
+	  $spacer: floor($base-line-height) / 2;
+		$spacer: $spacer * $multiple;
+		$spacer: $spacer * 1px;
+	} @else {
+  	$spacer: $half-line-height * $multiple;
+  	$spacer: px-to-rem($spacer);
+	}
+  @debug $spacer;
+	@return $spacer;
+}
+
+@function next-increment($n, $larger: true){
+	$increment:			0;
+	$effective_ratio:	0;
+	$multiple:			round($n / 2);
+	@if($larger){
+		@if($n % 2 != 0){
+			$effective_ratio: 	sqrt($base-line-gird);
+		} @else {
+			$effective_ratio: 	$base-line-gird;
+		}
+		$increment:			$body-font-ems * $effective_ratio * $multiple;
+	} @else {
+		@if($n % 2 == 0){
+			$effective_ratio: 	sqrt($base-line-gird);
+		} @else {
+			$effective_ratio: 	$base-line-gird;
+		}
+		$increment:			$body-font-ems / $effective_ratio * $multiple;
+	}
+@return $increment;
+	
+} 
+
+@function next-line-height($font-size, $larger: true){
+	$px-font-size:		em-to-px($font-size);
+	$px-font-size:		strip-unit($px-font-size);
+	$line-height:	0;
+
+	@if($larger){
+		$lines:			$px-font-size / $half-line-height + 1;
+		$lines:			floor($lines);
+		$line-height:	$lines * $half-line-height;
+		@while $line-height < $px-font-size {
+			$line-height: $line-height + $half-line-height;
+		}
+		
+	} @else {
+		$possible-line-height: 	$font-size * $base-line-gird;
+		$quotient:		strip-unit($possible-line-height) / $base-line-gird;
+		@if($quotient > 0.75){
+			$line-height:		 $base-line-height;
+		} @else if($quotient > 0.5){
+			$line-height:		$third-line-height * 2;
+		} @else if($quotient > 0.25){
+			$line-height:		$half-line-height;
+		} @else {
+			$line-height:		$third-line-height;
+		}
+	}
+	
+	@if($browser-rounds-line-height == TRUE){
+		$line-height:	round($line-height * 1px);
+	}
+	$line-height: px-to-em($line-height, $px-font-size);
+	
+	@return $line-height;
+}
+
+@function get-number-from($list){
+	$length: length($list);
+	@for $i from 1 to $length{
+		$current: nth($list, $i);
+		@if(type-of($current) == number){
+			@return $current;
+		}
+	}
+	@return 0;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function px-to-em($target, $context: $base-font-size) {
+   $target:	strip-unit($target);
+   $context:	strip-unit($context);
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
+}
+
+@function px-to-rem($target, $context: $base-font-size) {
+	$target:	strip-unit($target);
+	$context:	strip-unit($context);
+	@if $target == 0 { @return 0 }
+	@return $target / $context + 0rem;
+}
+
+@function em-to-px($target, $context: $base-font-size) {
+	$target:	strip-unit($target);
+	$context:	strip-unit($context);
+	@if $target == 0 { @return 0 }
+	@return $target * $context + 0px;
+}
+
+@function get-base-line-height(){
+	$line-height:		$base-line-gird * $body-font-size;
+
+	@if($browser-rounds-line-height == TRUE){
+		$line-height:		floor($line-height);
+	}
+	@return $line-height;
+}
+
+/////   !BASE VARIABLES
+
+// Set the expected base font size of the browser
+$base-font-size: 		16;
+// The body font in ems
+$body-font-ems: 		px-to-em($body-font-size);
+// The base line height
+$base-line-height:		get-base-line-height();
+// The base line height in half
+$half-line-height:		$base-line-height / 2;
+// The base line height in thirds
+$third-line-height:		$base-line-height / 3;
+// The base line height in rems
+$base-line-rem:			px-to-rem($base-line-height);
+
+/////   !MIXINS
+
+
+@mixin calc-fixed-height($multiple){
+	height: $multiple * $body-font-size * $base-line-gird;
+}
+
+/* TODO add spacer */
+@mixin horizontal-rule($border, $em-base: 16px){
+	$number: 		get-number-from($border);
+	$margin: 0;
+  @if($browser-rounds-line-height == TRUE){
+    $margin:		rhythm-spacer($multiple: 1)
+  } @else {
+    $rem-number: 	px-to-rem($number);
+    $margin:		rhythm-spacer($multiple: 1) - $rem-number;
+    
+  }
+	
+	border: 		$border;
+	margin-bottom: 	$margin;
+}
+
+
+
+@mixin get-font-and-line($n, $larger: true){
+	$font-size: 		next-increment($n, $larger);
+	$line-height:		next-line-height($font-size, $larger);
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+
+@mixin double-baseline-grid($baseline: $grid-background-baseline-height) {
+		$midline: linear-gradient(top,rgba($baseline-mid-colour, 0) 46%, $baseline-mid-colour 50%, rgba($baseline-mid-colour, 0) 51%);
+		$endline: linear-gradient(top,rgba($baseline-bottom-colour, 0) 96%, $baseline-bottom-colour 100%);
+		@include background-image($midline, $endline);
+		@include background-size(100% $baseline);
+}
+
+/////   !CSS 
+
+ /* Typography resets */
+body, html, div, 
+dl, dt,li,
+p, pre, blockquote, form,
+th, td {
+  margin:0;
+  padding:0;
+}
+
+html{
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+	font-size: $body-font-ems;
+	line-height: $base-line-gird * 1em;
+}
+
+
+ul, ol, dd,
+p, fingure,
+pre, table, fieldset, hr,
+div, header, iframe, article{
+	margin-top: 0;
+	margin-bottom: rhythm-spacer(1);
+	padding:0;
+}
+
+h1, h2, h3, h4, h5, h6, hgroup{
+	font-size: 1em;
+	margin-bottom: rhythm-spacer(1);
+	margin-top: 0;
+	padding-top: rhythm-spacer();
+	font-weight: normal;
+	
+}
+
+.font-minus-1 {
+	@include get-font-and-line(1, false);
+}
+
+.font-minus-2 {
+	@include get-font-and-line(2, false);
+}
+
+.font-plus-1 {
+	@include get-font-and-line(1);
+}
+
+.font-plus-2 {
+	@include get-font-and-line(2);
+}
+
+.font-plus-3 {
+@include get-font-and-line(3);
+}
+
+.font-plus-4 {
+@include get-font-and-line(4);
+}
+
+hr, .horizontal-rule{
+	@include horizontal-rule(1px solid black);
+}
+
+.block {
+	padding: rhythm-spacer(1);
+}
+
+.overlay{
+	@include double-baseline-grid($base-line-height * 1px);
+	background-position: 100% $baseline-offset;
+	position: absolute;
+	top:0;
+	bottom:0;
+	width: 100%;
+	height:$document-length;
+	margin: 0;
+	z-index: 5000;
+	@include opacity(0.6);
+	pointer-events: none;
+  @if($display-grid == TRUE){
+   display: none;
+  }
+}
+
+article {
+	margin: 0 rhythm-spacer(1);
+}
+

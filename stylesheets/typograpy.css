@@ -1,0 +1,190 @@
+/* @import "normalize"; */
+/* TODO add spacer */
+/* Typography resets */
+/* line 181, ../sass/_core.scss */
+body, html, div,
+dl, dt, li,
+p, pre, blockquote, form,
+th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 186, ../sass/_core.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+/* line 197, ../sass/_core.scss */
+ul, ol, dd,
+p, fingure,
+pre, table, fieldset, hr,
+div, header, iframe, article {
+  margin-top: 0;
+  margin-bottom: 12.5px;
+  padding: 0;
+}
+
+/* line 203, ../sass/_core.scss */
+h1, h2, h3, h4, h5, h6, hgroup {
+  font-size: 1em;
+  margin-bottom: 12.5px;
+  margin-top: 0;
+  padding-top: 12.5px;
+  font-weight: normal;
+}
+
+/* line 212, ../sass/_core.scss */
+.font-minus-1 {
+  font-size: 0.625em;
+  line-height: 1.7em;
+}
+
+/* line 216, ../sass/_core.scss */
+.font-minus-2 {
+  font-size: 0.79057em;
+  line-height: 1.97642em;
+}
+
+/* line 220, ../sass/_core.scss */
+.font-plus-1 {
+  font-size: 1.26491em;
+  line-height: 1.23526em;
+}
+
+/* line 224, ../sass/_core.scss */
+.font-plus-2 {
+  font-size: 1.6em;
+  line-height: 1.48438em;
+}
+
+/* line 228, ../sass/_core.scss */
+.font-plus-3 {
+  font-size: 2.52982em;
+  line-height: 1.23526em;
+}
+
+/* line 232, ../sass/_core.scss */
+.font-plus-4 {
+  font-size: 3.2em;
+  line-height: 1.23047em;
+}
+
+/* line 236, ../sass/_core.scss */
+hr, .horizontal-rule {
+  border: 1px solid black;
+  margin-bottom: 12.5px;
+}
+
+/* line 240, ../sass/_core.scss */
+.block {
+  padding: 12.5px;
+}
+
+/* line 244, ../sass/_core.scss */
+.overlay {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(46%, rgba(255, 0, 0, 0)), color-stop(50%, #ff0000), color-stop(51%, rgba(255, 0, 0, 0))), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(96%, rgba(255, 0, 0, 0)), color-stop(100%, #ff0000));
+  background-image: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 46%, #ff0000 50%, rgba(255, 0, 0, 0) 51%), -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 96%, #ff0000 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 0, 0, 0) 46%, #ff0000 50%, rgba(255, 0, 0, 0) 51%), -moz-linear-gradient(top, rgba(255, 0, 0, 0) 96%, #ff0000 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 0, 0, 0) 46%, #ff0000 50%, rgba(255, 0, 0, 0) 51%), -o-linear-gradient(top, rgba(255, 0, 0, 0) 96%, #ff0000 100%);
+  background-image: linear-gradient(top, rgba(255, 0, 0, 0) 46%, #ff0000 50%, rgba(255, 0, 0, 0) 51%), linear-gradient(top, rgba(255, 0, 0, 0) 96%, #ff0000 100%);
+  -webkit-background-size: 100% 25px;
+  -moz-background-size: 100% 25px;
+  -o-background-size: 100% 25px;
+  background-size: 100% 25px;
+  background-position: 100% 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10000px;
+  margin: 0;
+  z-index: 5000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* line 261, ../sass/_core.scss */
+article {
+  margin: 0 12.5px;
+}
+
+/* line 14, ../sass/_sample-use.scss */
+h1, h2, h6 {
+  font-family: 'Berkshire Swash', cursive;
+}
+
+/* line 18, ../sass/_sample-use.scss */
+a {
+  color: red;
+  text-decoration: none;
+}
+
+/* line 23, ../sass/_sample-use.scss */
+a:hover {
+  color: #a10000;
+}
+
+/* line 27, ../sass/_sample-use.scss */
+.block {
+  background: black;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 34, ../sass/_sample-use.scss */
+.block h1 {
+  width: 50%;
+  clear: none;
+}
+
+/* line 39, ../sass/_sample-use.scss */
+.block .button {
+  z-index: 5001;
+  position: absolute;
+  top: 31.25px;
+  right: 12.5px;
+  padding: 12.5px;
+  -moz-border-radius: 12.5px;
+  -webkit-border-radius: 12.5px;
+  border-radius: 12.5px;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  background-color: red;
+}
+
+/* line 50, ../sass/_sample-use.scss */
+.block .button:hover {
+  background-color: orange;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+/* line 55, ../sass/_sample-use.scss */
+.button a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+/* line 65, ../sass/_sample-use.scss */
+article p {
+  font-family: 'Lato', sans-serif;
+}
+
+/* line 70, ../sass/_sample-use.scss */
+.grid-off {
+  display: none;
+}

@@ -1,0 +1,73 @@
+@mixin round-corners($radius) {
+    -moz-border-radius: $radius;    
+    -webkit-border-radius: $radius; 
+    border-radius: $radius;         
+}
+
+@mixin animate-background($time){
+  -webkit-transition: background-color $time ease;
+  -moz-transition: background-color $time ease;
+  -o-transition: background-color $time ease;
+  transition: background-color $time ease;
+}
+
+h1, h2, h6{
+ font-family: 'Berkshire Swash', cursive;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a10000;
+}
+
+.block {
+	background: black;
+	color: white;
+	position: relative;
+	z-index: 1;
+}
+
+.block h1 {
+ width: 50%;
+ clear: none;  
+}
+
+.block .button {
+  z-index: 5001;
+  position: absolute;
+  top: rhythm-spacer(2.5);
+  right: rhythm-spacer(1);
+  padding: rhythm-spacer(1);
+  @include round-corners(rhythm-spacer(1));
+  @include animate-background(0.5s);
+  background-color: red;
+}
+
+.block .button:hover {
+  background-color: orange;
+  @include animate-background(0.5s);
+}
+
+.button a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  
+}
+
+
+
+article p{
+  font-family: 'Lato', sans-serif;
+}
+
+
+.grid-off{
+  display: none;
+}
+
