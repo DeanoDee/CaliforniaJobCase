@@ -17,41 +17,52 @@
 
 <body>
 <div class="overlay"></div>
-<div class="block"> 
-  <h1 class="font-plus-4">California Job Case</h1>
-  <div class="button grid-toggle"><a href="#"><span class="grid-on">Turn Off Grid</span><span class="grid-off">Turn On Grid</span></a></div>
+<header>
+  <div class="block"> 
+    <h1 class="font-plus-4">California Job Case</h1>
+    <div class="button grid-toggle"><a href="#"><span class="grid-on">Turn Off Grid</span><span class="grid-off">Turn On Grid</span></a>
+  </div>
 </div>
+</header>
 
 <article>
 
-<p>California Job Case is a set of typographic tools for making your fonts work rhythmically with using a base line grid. It is currently in alpha and is working well in Chrome, but not some much in Safari (my favourite). It's based on <a href="http://sass-lang.com">SASS</a> so please be sure you have that installed. Future releases will be installable via <a href="http://bower.io">bower</a> and a <a href="http://rubygems.org">gem</a></p>
+  <p>California Job Case is a set of typographic tools for making your fonts work rhythmically with using a base line grid. It is currently in alpha and is working well in Chrome, but not some much in Safari (my favourite). It's based on <a href="http://sass-lang.com">SASS</a> so please be sure you have that installed. Future releases will be installable via <a href="http://bower.io">bower</a> and a <a href="http://rubygems.org">gem</a></p>
+  
+  <p>The basic premiss of this framework is to set a few variables and then get font-size, line-height, padding and margins from some behind the scenes calculations. The base variables are the base font size and the line height you wish to use. From that use classes like <em>font-plus-1</em> (with options for 1-4) or <em>font-minus-1</em> (with options to 1-2). These are rhythmically extrapolated which you can extend further using the <em>get-font-and-line($multiple[int], $larger[boolean])</em> mixin. There is also a the <em>rhythm-spacer($multiple)</em> which is will return a value to use paddings an margins in multiples of half line heights.</p>
+  
+  <p>One of the reasons I saw a need for this is that html that by default bigger means more important, and as a designer that is just not true. Placement, font style and colour can be just as important in the factors of informing the user's eye of the hierarchy. Not to mention that the assumption that the incremental font sizes is kind of boring like this page's current vanila layout. So here's some samples</p>
+  
+  <h6 class="font-plus-1">This is an h6 with a font one up from the base (<em>font-plus-1</em>)</h6>
+  
+  <p>The font sizes are not a simple doubling, but the algorithm uses a square root values to make a series of odd font sizes – like the one above, to step between double values. Oh by the way the font in black above is <em>font-plus-4</em>. Here's some more samples below of things you can do with it</p>
+  
+  <h2 class="font-plus-2">H2 (<em>font-plus-2</em>)</h2>
+  
+  <p class="font-minus-1">Here's an example of some of the small text that can be produced using <em>font-minus-1</em> followed by a horizontal rule. But before that here's some nonsense: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  
+  <hr>
+  
+  <p  class="font-minus-2"><stong><em>font-minus-2</em></strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h2 class="font-plus-3">Let's Blather on (<em>font-plus-3</em>)</h2>
+  <p>I'd like to take some more time and detail this but this is all for now. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p class="font-minus-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <hr>
+  
+  <p  class="font-minus-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<p>The basic premiss of this framework is to set a few variables and then get font-size, line-height, padding and margins from some behind the scenes calculations. The base variables are the base font size and the line height you wish to use. From that use classes like <em>font-plus-1</em> (with options for 1-4) or <em>font-minus-1</em> (with options to 1-2). These are rhythmically extrapolated which you can extend further using the <em>get-font-and-line($multiple[int], $larger[boolean])</em> mixin. There is also a the <em>rhythm-spacer($multiple)</em> which is will return a value to use paddings an margins in multiples of half line heights.</p>
-
-<p>One of the reasons I saw a need for this is that html that by default bigger means more important, and as a designer that is just not true. Placement, font style and colour can be just as important in the factors of informing the user's eye of the hierarchy. Not to mention that the assumption that the incremental font sizes is kind of boring like this page's current vanila layout. So here's some samples</p>
-
-<h6 class="font-plus-1">This is an h6 with a font one up from the base (<em>font-plus-1</em>)</h6>
-
-<p>The font sizes are not a simple doubling, but the algorithm uses a square root values to make a series of odd font sizes – like the one above, to step between double values. Oh by the way the font in black above is <em>font-plus-4</em>. Here's some more samples below of things you can do with it</p>
-
-<h2 class="font-plus-2">H2 (<em>font-plus-2</em>)</h2>
-
-<p class="font-minus-1">Here's an example of some of the small text that can be produced using <em>font-minus-1</em> followed by a horizontal rule. But before that here's some nonsense: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-<hr>
-<p  class="font-minus-2"><stong><em>font-minus-2</em></strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<h2 class="font-plus-3">Let's Blather on (<em>font-plus-3</em>)</h2>
-<p>I'd like to take some more time and detail this but this is all for now. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<!-- <h2 class="font-plus-2">That Is This</h2> -->
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p class="font-minus-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<hr>
-<p  class="font-minus-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </body>
 </html>

@@ -165,11 +165,33 @@ $base-line-rem:			px-to-rem($base-line-height);
 }
 
 
-@mixin double-baseline-grid($baseline: $grid-background-baseline-height) {
-		$midline: linear-gradient(top,rgba($baseline-mid-colour, 0) 46%, $baseline-mid-colour 50%, rgba($baseline-mid-colour, 0) 51%);
-		$endline: linear-gradient(top,rgba($baseline-bottom-colour, 0) 96%, $baseline-bottom-colour 100%);
-		@include background-image($midline, $endline);
-		@include background-size(100% $baseline);
+@mixin double-baseline-grid($baseline: $grid-background-baseline-height) {		
+		background-image: 
+		  -webkit-gradient(linear, 50% 0%, 50% 100%, 
+  		  color-stop(46%, rgba($baseline-mid-colour, 0)), 
+  		  color-stop(50%, rgba($baseline-mid-colour, 0), 
+  		  color-stop(51%, rgba($baseline-mid-colour, 0))
+		  ), 
+		  -webkit-gradient(linear, 50% 0%, 50% 100%, 
+  		  color-stop(96%, rgba($baseline-bottom-colour, 0)), 
+  		  color-stop(100%, rgba($baseline-bottom-colour, 0))
+		  );
+    background-image: 
+      -webkit-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, rgba($baseline-mid-colour, 0) 50%, rgba($baseline-mid-colour, 0) 51%), 
+      -webkit-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+    background-image: 
+      -moz-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, rgba($baseline-mid-colour, 0) 50%, rgba($baseline-mid-colour, 0) 51%), 
+      -moz-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+    background-image: 
+      -o-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, rgba($baseline-mid-colour, 0) 50%, rgba($baseline-mid-colour, 0) 51%), 
+      -o-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+    background-image: 
+      linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, #ff0000 50%, rgba($baseline-mid-colour, 0) 51%), 
+      linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+    -webkit-background-size: 100% $baseline;
+    -moz-background-size: 100% $baseline;
+    -o-background-size: 100% $baseline;
+    background-size: 100% $baseline;
 }
 
 /////   !CSS 
@@ -251,7 +273,9 @@ hr, .horizontal-rule{
 	height:$document-length;
 	margin: 0;
 	z-index: 5000;
-	@include opacity(0.6);
+	zoom: 1;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
 	pointer-events: none;
   @if($display-grid == TRUE){
    display: none;
