@@ -2,6 +2,7 @@
 
 @function rhythm-spacer($multiple: 1){
 	$spacer: 0;
+	
 	@if($browser-rounds-line-height == TRUE){
 	  $spacer: floor($base-line-height) / 2;
 		$spacer: $spacer * $multiple;
@@ -10,7 +11,7 @@
   	$spacer: $half-line-height * $multiple;
   	$spacer: px-to-rem($spacer);
 	}
-  @debug $spacer;
+	
 	@return $spacer;
 }
 
@@ -18,6 +19,7 @@
 	$increment:			0;
 	$effective_ratio:	0;
 	$multiple:			round($n / 2);
+	
 	@if($larger){
 		@if($n % 2 != 0){
 			$effective_ratio: 	sqrt($base-line-gird);
@@ -33,8 +35,8 @@
 		}
 		$increment:			$body-font-ems / $effective_ratio * $multiple;
 	}
-@return $increment;
 	
+  @return $increment;
 } 
 
 @function next-line-height($font-size, $larger: true){
@@ -49,7 +51,6 @@
 		@while $line-height < $px-font-size {
 			$line-height: $line-height + $half-line-height;
 		}
-		
 	} @else {
 		$possible-line-height: 	$font-size * $base-line-gird;
 		$quotient:		strip-unit($possible-line-height) / $base-line-gird;
@@ -67,6 +68,7 @@
 	@if($browser-rounds-line-height == TRUE){
 		$line-height:	round($line-height * 1px);
 	}
+	
 	$line-height: px-to-em($line-height, $px-font-size);
 	
 	@return $line-height;
@@ -74,12 +76,14 @@
 
 @function get-number-from($list){
 	$length: length($list);
+	
 	@for $i from 1 to $length{
 		$current: nth($list, $i);
 		@if(type-of($current) == number){
 			@return $current;
 		}
 	}
+	
 	@return 0;
 }
 
@@ -114,6 +118,7 @@
 	@if($browser-rounds-line-height == TRUE){
 		$line-height:		floor($line-height);
 	}
+	
 	@return $line-height;
 }
 
@@ -148,7 +153,6 @@ $base-line-rem:			px-to-rem($base-line-height);
   } @else {
     $rem-number: 	px-to-rem($number);
     $margin:		rhythm-spacer($multiple: 1) - $rem-number;
-    
   }
 	
 	border: 		$border;
@@ -196,7 +200,6 @@ $base-line-rem:			px-to-rem($base-line-height);
 
 /////   !CSS 
 
- /* Typography resets */
 body, html, div, 
 dl, dt,li,
 p, pre, blockquote, form,
