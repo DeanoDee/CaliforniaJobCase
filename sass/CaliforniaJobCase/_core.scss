@@ -118,11 +118,27 @@
 	@if($browser-rounds-line-height == TRUE){
 		$line-height:		floor($line-height);
 	}
-	
 	@return $line-height;
 }
 
 /////   !BASE VARIABLES
+
+$body-font-size:		16 !default;
+// Select a line height (usually 1.4-1.6) to base the grid off of
+$base-line-gird:		1.6 !default;
+// Improves the background line grid performance (Safari does round, Chrome does not)
+$browser-rounds-line-height: true !default;
+// display baseline grid
+$display-grid: true !default;
+// Set a pixel value offset to align the grid as small font sizes and other block elements throw it out of wack
+$baseline-offset: 0px !default;
+// Set line height colour
+$baseline-bottom-colour: red !default;
+// Set mid line height colour
+$baseline-mid-colour: red !default;
+// Set the lenght of the grid
+$document-length: 10000px !default;
+
 
 // Set the expected base font size of the browser
 $base-font-size: 		16;
@@ -173,25 +189,25 @@ $base-line-rem:			px-to-rem($base-line-height);
 		background-image: 
 		  -webkit-gradient(linear, 50% 0%, 50% 100%, 
   		  color-stop(46%, rgba($baseline-mid-colour, 0)), 
-  		  color-stop(50%, rgba($baseline-mid-colour, 0), 
+  		  color-stop(50%, $baseline-mid-colour), 
   		  color-stop(51%, rgba($baseline-mid-colour, 0))
 		  ), 
 		  -webkit-gradient(linear, 50% 0%, 50% 100%, 
   		  color-stop(96%, rgba($baseline-bottom-colour, 0)), 
-  		  color-stop(100%, rgba($baseline-bottom-colour, 0))
+  		  color-stop(100%, $baseline-bottom-colour)
 		  );
     background-image: 
-      -webkit-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, rgba($baseline-mid-colour, 0) 50%, rgba($baseline-mid-colour, 0) 51%), 
-      -webkit-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+      -webkit-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, $baseline-mid-colour 50%, rgba($baseline-mid-colour, 0) 51%), 
+      -webkit-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, $baseline-bottom-colour 100%);
     background-image: 
-      -moz-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, rgba($baseline-mid-colour, 0) 50%, rgba($baseline-mid-colour, 0) 51%), 
-      -moz-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+      -moz-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, $baseline-mid-colour 50%, rgba($baseline-mid-colour, 0) 51%), 
+      -moz-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, $baseline-bottom-colour 100%);
     background-image: 
-      -o-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, rgba($baseline-mid-colour, 0) 50%, rgba($baseline-mid-colour, 0) 51%), 
-      -o-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+      -o-linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, $baseline-mid-colour 50%, rgba($baseline-mid-colour, 0) 51%), 
+      -o-linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, $baseline-bottom-colour 100%);
     background-image: 
-      linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, #ff0000 50%, rgba($baseline-mid-colour, 0) 51%), 
-      linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, rgba($baseline-bottom-colour, 0) 100%);
+      linear-gradient(top, rgba($baseline-mid-colour, 0) 46%, $baseline-bottom-colour 50%, rgba($baseline-mid-colour, 0) 51%), 
+      linear-gradient(top, rgba($baseline-bottom-colour, 0) 96%, $baseline-bottom-colour 100%);
     -webkit-background-size: 100% $baseline;
     -moz-background-size: 100% $baseline;
     -o-background-size: 100% $baseline;

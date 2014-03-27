@@ -3,13 +3,11 @@ $body-font-size:		16;
 // Select a line height (usually 1.4-1.6) to base the grid off of
 $base-line-gird:		1.6;
 // Improves the background line grid performance (Safari does round, Chrome does not)
-$browser-rounds-line-height: TRUE;
+$browser-rounds-line-height: true;
 // display baseline grid
 $display-grid: true;
-
 // Set a pixel value offset to align the grid as small font sizes and other block elements throw it out of wack
 $baseline-offset: 0px;
-
 // Set line height colour
 $baseline-bottom-colour: red;
 // Set mid line height colour
