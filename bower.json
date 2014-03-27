@@ -8,6 +8,6 @@
     "README.md",
   ]
   "dependencies": {
-    "sassy-math" : "1.5.0",
+    "sassy-math" : "1.5.0"
   }
 }
