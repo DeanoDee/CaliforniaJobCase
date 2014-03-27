@@ -1,13 +1,13 @@
 {
   "name": "california-job-case",
-  "version": "0.1.0",
-  "main": ["stylesheets/typograpy.css",
+  "version": "0.1.2",
+  "main": "stylesheets/typograpy.css",
   "ignore": [
      "**/.*",
     ".*",
-    "README.md",
+    "README.md"
   ],
-  "devDependencies": {
+  "dependencies": {
     "sassy-math" : "1.5.0"
   }
 }
