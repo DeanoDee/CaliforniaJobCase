@@ -1,6 +1,6 @@
 {
   "name": "california-job-case",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "stylesheets/typograpy.css",
   "ignore": [
      "**/.*",
