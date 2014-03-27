@@ -6,8 +6,5 @@
      "**/.*",
     ".*",
     "README.md"
-  ],
-  "dependencies": {
-    "sassy-math" : "master"
-  }
+  ]
 }
