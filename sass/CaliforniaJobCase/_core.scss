@@ -224,7 +224,7 @@ th, td {
   padding:0;
 }
 
-html{
+html, body{
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 	font-size: $body-font-ems;
